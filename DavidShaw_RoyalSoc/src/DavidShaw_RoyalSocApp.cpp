@@ -44,7 +44,7 @@ void DavidShaw_RoyalSocApp::mouseUp( MouseEvent event )
 }
 
 
-
+//starts at the end of the list, and works backwards drawing stuff.
 void DavidShaw_RoyalSocApp::update()
 {
 	Node* cur = sentinel->prev_;
