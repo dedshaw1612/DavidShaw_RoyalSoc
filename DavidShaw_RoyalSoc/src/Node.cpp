@@ -10,11 +10,16 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-Node::Node(int x1 ,int y1, int x2, int y2) {
-	this->x1=x1;
-	this->y1=y1;
-	this->x2=x2;
-	this->y2=y2;
+Node::Node(float x1 ,float y1, float x2, float y2,Node* sentinel) {
+	this->rect_->x1=x1;
+	this->rect_->x2=x2;
+	this->rect_->y1=y1;
+	this->rect_->y2=y2;
+	this->next_=sentinel->next_;
+	this->prev_=sentinel;
+	sentinel->next_->prev_=this;
+	sentinel->next_=this;
+	
 }
 
 Node::Node() {
@@ -23,10 +28,10 @@ Node::Node() {
 }
 
 
-void insertAfter(Node* after_Me, Node* new_Item){
-	new_Item->next_ = after_Me->next_;
-	new_Item->prev_ = after_Me;
-	after_Me->next_->prev_ = new_Item;
-	after_Me->next_ = new_Item;
-
-}
+//void insertAfter(Node* after_Me, Node* new_Item){
+//	new_Item->next_ = after_Me->next_;
+//	new_Item->prev_ = after_Me;
+//	after_Me->next_->prev_ = new_Item;
+//	after_Me->next_ = new_Item;
+//
+//}

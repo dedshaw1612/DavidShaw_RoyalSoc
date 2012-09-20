@@ -11,9 +11,10 @@ class DavidShaw_RoyalSocApp : public AppBasic {
   public:
 	void setup();
 	void mouseDown( MouseEvent event );	
-	void mouseDrag( MouseEvent event );	
+	void mouseUp( MouseEvent event );	
 	void update();
 	void draw();
+	float x1,x2,y1,y2;
 	Node* sentinel;
 };
 
@@ -26,11 +27,23 @@ void DavidShaw_RoyalSocApp::setup()
 void DavidShaw_RoyalSocApp::mouseDown( MouseEvent event )
 {
 	if(event.isLeft()) {
-		int x1 = event.getX();
-		int x2 = event.getY();
+		x1 = (float(event.getX()));
+		y1 = (float(event.getY()));
+	}
+}
+
+void DavidShaw_RoyalSocApp::mouseUp( MouseEvent event ) 
+{
+	if(event.isLeft()) {
+		x2 = (float(event.getX()));
+		y2 = (float(event.getY()));
 	}
 
+	new Node(x1,y1,x2,y2,sentinel);
+
 }
+
+
 
 void DavidShaw_RoyalSocApp::update()
 {
