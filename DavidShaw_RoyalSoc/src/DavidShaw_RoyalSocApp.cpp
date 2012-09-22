@@ -49,6 +49,7 @@ void DavidShaw_RoyalSocApp::update()
 {
 	Node* cur = sentinel->prev_;
 	while(cur!=sentinel) {
+		gl::color(Color8u(255,127,00));
 		gl::drawSolidRect(*(cur->rect_),false);
 		cur = cur->prev_;
 	}
