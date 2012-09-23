@@ -2,6 +2,8 @@
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
 #include "Node.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace ci;
 using namespace ci::app;
@@ -15,13 +17,18 @@ class DavidShaw_RoyalSocApp : public AppBasic {
 	void update();
 	void draw();
 	float x1,x2,y1,y2;
+	int redCount;
 	Node* sentinel;
+	
 };
 
 void DavidShaw_RoyalSocApp::setup()
 
 {
 	sentinel = new Node();
+	redCount = 250;
+	
+	
 }
 
 void DavidShaw_RoyalSocApp::mouseDown( MouseEvent event )
@@ -49,9 +56,10 @@ void DavidShaw_RoyalSocApp::update()
 {
 	Node* cur = sentinel->prev_;
 	while(cur!=sentinel) {
-		gl::color(Color8u(255,127,00));
+		gl::color(Color8u(redCount,redCount,redCount));
 		gl::drawSolidRect(*(cur->rect_),false);
 		cur = cur->prev_;
+		redCount -= 10;
 	}
 }
 

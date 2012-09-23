@@ -62,7 +62,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>cinder_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\David\Desktop\Cinder\cinder_0.8.4_vc2010\lib;C:\Users\David\Desktop\Cinder\cinder_0.8.4_vc2010\lib\msw;..\..\..\\lib;..\..\..\\lib\msw;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft Visual Studio 10.0;C:\Users\David\Desktop\Cinder\cinder_0.8.4_vc2010\lib;C:\Users\David\Desktop\Cinder\cinder_0.8.4_vc2010\lib\msw;..\..\..\\lib;..\..\..\\lib\msw;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
