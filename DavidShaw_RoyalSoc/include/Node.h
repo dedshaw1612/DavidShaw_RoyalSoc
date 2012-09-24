@@ -7,6 +7,7 @@
 class Node {
 public:
 	Node(float x1,float y1, float x2, float y2,Node* sentinel);
+	Node(Node* copy_Me);
 	Node();
 
 	
@@ -21,8 +22,10 @@ public:
 	//another member is a pointer to a rectT.
 	cinder::RectT<float>* rect_;
 
+
+	bool isInside(float x, float y);
 	//Return true of the (x,y) provided is inside the Node
-	//bool isInside(float x, float y);
+	
 	//void draw(ci::Vec2i mouse_pos);
 	//void update(ci::Vec2f parent_position, float parent_r);
 	
