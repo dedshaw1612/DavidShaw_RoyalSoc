@@ -6,6 +6,7 @@
 //#include "cinder/Rect.h"
 #include "Node.h"
 //#include <vector.h>
+#include <algorithm> // added for min/max methods -Nick
 
 
 using namespace ci;
@@ -16,10 +17,10 @@ using namespace std;
 //and assigns the links appropriatly.
 Node::Node(float x1 ,float y1, float x2, float y2,Node* sentinel) {
 	this->rect_ = new Rectf();
-	this->rect_->x1=x1;
-	this->rect_->x2=x2;
-	this->rect_->y1=y1;
-	this->rect_->y2=y2;
+	this->rect_->x1= min(x1, x2);
+	this->rect_->x2=max(x1,x2);
+	this->rect_->y1=min(y1,y2);
+	this->rect_->y2=max(y1,y2);
 
 	this->next_=sentinel->next_;
 	this->prev_=sentinel;
@@ -48,7 +49,7 @@ Node::Node(Node* copy_Me) {
 
 bool Node::isInside(float x, float y) {
 	return ((x >= this->rect_->getX1()) && (x <= this->rect_->getX2()) &&
-		    (y >= this->rect_->getY1()) && (x <= this->rect_->getY2()));
+		    (y >= this->rect_->getY1()) && (y <= this->rect_->getY2())); //fixed a small error here: had an x instead of a y - Nick
 
 
 }
