@@ -32,6 +32,14 @@ void DavidShaw_RoyalSocApp::setup()
 
 void DavidShaw_RoyalSocApp::keyDown(KeyEvent event) {
 	if(event.getCode() == event.KEY_r) {
+		Node* cur = sentinel;
+		do {
+			Node* temp = cur->next_;
+			cur->next_ = cur->prev_;
+			cur->prev_ = temp;
+			cur = cur->prev_;
+		}while(cur!=sentinel);
+		/*
 		Node* cur1 = sentinel->next_;
 		Node* cur2 = sentinel->prev_;
 		while((cur1!=cur2)&&(cur1->prev_!=cur2)&&(cur2->next_!=cur1)&&(cur2->next_!=cur2)) {
@@ -50,7 +58,7 @@ void DavidShaw_RoyalSocApp::keyDown(KeyEvent event) {
 			cur2=temp2->prev_;
 			delete temp1;
 			delete temp2;
-		}
+		}*/
 	}
 }
 
